@@ -54,6 +54,17 @@ class Article extends Model
         return $this->belongsToMany(Tag::class);
     }
 
+    public function getThumbnailUrlAttribute($value)
+    {
+        if (!$value) {
+            return null;
+        }
+        if (str_starts_with($value, 'http://') || str_starts_with($value, 'https://')) {
+            return $value;
+        }
+        return asset($value);
+    }
+
     public function scopePublished($query)
     {
         return $query->where('status', 'published')

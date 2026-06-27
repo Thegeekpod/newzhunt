@@ -166,7 +166,7 @@
         'anchor', 'searchreplace', 'visualblocks', 'code', 'fullscreen',
         'insertdatetime', 'media', 'table', 'help', 'wordcount'
       ],
-      toolbar: 'undo redo | blocks | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | removeformat | code fullscreen | help',
+      toolbar: 'undo redo | blocks | bold italic blockquote | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | removeformat | code fullscreen | help',
       toolbar_mode: 'sliding',
       skin: 'oxide-dark',
       content_css: 'dark',

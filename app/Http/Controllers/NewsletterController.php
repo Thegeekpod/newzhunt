@@ -11,6 +11,7 @@ class NewsletterController extends Controller
     public function subscribe(Request $request)
     {
         $validator = Validator::make($request->all(), [
+            'name' => 'nullable|string|max:255',
             'email' => 'required|email|unique:newsletters,email'
         ]);
 
@@ -22,6 +23,7 @@ class NewsletterController extends Controller
         }
 
         Newsletter::create([
+            'name' => $request->name,
             'email' => $request->email
         ]);
 

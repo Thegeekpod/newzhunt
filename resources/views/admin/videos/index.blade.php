@@ -12,7 +12,7 @@
   <div class="admin-card">
     <h2 class="card-title" style="margin-bottom: 20px;">Add New Video</h2>
     
-    <form action="{{ route('admin.videos.store') }}" method="POST">
+    <form action="{{ route('admin.videos.store') }}" method="POST" enctype="multipart/form-data">
       @csrf
       <div class="form-group">
         <label for="title_bn" class="form-label">Video Title (Bengali) <span style="color: var(--danger)">*</span></label>
@@ -31,9 +31,15 @@
         </div>
         
         <div class="form-group">
-          <label for="thumbnail_url" class="form-label">Thumbnail URL (Optional - leave empty to auto-fetch from YouTube)</label>
+          <label for="thumbnail_url" class="form-label">Thumbnail URL (Optional)</label>
           <input type="url" name="thumbnail_url" id="thumbnail_url" class="form-control" placeholder="e.g. https://img.youtube.com/...">
         </div>
+      </div>
+
+      <div class="form-group">
+        <label for="thumbnail_file" class="form-label">Or Upload Custom Thumbnail (Optional)</label>
+        <input type="file" name="thumbnail_file" id="thumbnail_file" class="form-control" style="padding: 6px 10px; font-size: 13px;">
+        <small style="color: var(--text-muted); font-size: 11px; margin-top: 4px; display: block;">Leave both empty to auto-fetch the thumbnail from YouTube.</small>
       </div>
       
       <button type="submit" class="btn-admin btn-admin-primary" style="width: 100%; justify-content: center;">

@@ -20,7 +20,7 @@ class AdController extends Controller
         $request->validate([
             'slot_name' => 'required|string',
             'destination_url' => 'nullable|url',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
+            'image' => 'required|file',
         ]);
 
         $imagePath = null;
@@ -46,7 +46,7 @@ class AdController extends Controller
         $request->validate([
             'slot_name' => 'required|string',
             'destination_url' => 'nullable|url',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
+            'image' => 'nullable|file',
         ]);
 
         $updateData = [
@@ -82,7 +82,7 @@ class AdController extends Controller
         $ad = Advertisement::findOrFail($id);
 
         $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
+            'image' => 'required|file',
         ]);
 
         if ($request->hasFile('image')) {

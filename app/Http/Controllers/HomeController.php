@@ -89,6 +89,25 @@ class HomeController extends Controller
         ));
     }
 
+    public function videos()
+    {
+        $videos = Video::latest()->paginate(12);
+        return view('videos', compact('videos'));
+    }
+
+    public function topStories()
+    {
+        $articles = Article::published()
+            ->where(function ($query) {
+                $query->where('is_lead', true)
+                      ->orWhere('is_sub_lead', true);
+            })
+            ->latest('published_at')
+            ->with(['category', 'author'])
+            ->paginate(10);
+        return view('top-news', compact('articles'));
+    }
+
     /**
      * Background weather refresh — called via AJAX after page load.
      * Returns current DB weather data immediately. If cache expired and
@@ -118,5 +137,22 @@ class HomeController extends Controller
             'low'      => $settings['weather_low'] ?? '--',
             'location' => $settings['weather_location'] ?? '',
         ]);
+    }
+
+    public function search(Request $request)
+    {
+        $query = $request->input('q');
+        $articles = Article::published()
+            ->when($query, function ($q, $query) {
+                $q->where(function ($sub) use ($query) {
+                    $sub->where('title', 'like', "%{$query}%")
+                        ->orWhere('content', 'like', "%{$query}%");
+                });
+            })
+            ->latest('published_at')
+            ->with(['category', 'author'])
+            ->paginate(10);
+
+        return view('search', compact('articles', 'query'));
     }
 }

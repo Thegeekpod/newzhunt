@@ -12,4 +12,15 @@ class Video extends Model
         'duration',
         'thumbnail_url'
     ];
+
+    public function getThumbnailUrlAttribute($value)
+    {
+        if (!$value) {
+            return null;
+        }
+        if (str_starts_with($value, 'http://') || str_starts_with($value, 'https://')) {
+            return $value;
+        }
+        return asset($value);
+    }
 }

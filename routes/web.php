@@ -25,6 +25,7 @@ use App\Http\Controllers\Admin\NewsletterController as AdminNewsletterController
 |--------------------------------------------------------------------------
 */
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/search', [HomeController::class, 'search'])->name('search');
 Route::get('/category/{slug}', [CategoryController::class, 'show'])->name('category.show');
 Route::get('/article/{slug}', [ArticleController::class, 'show'])->name('article.show');
 Route::get('/tag/{slug}', [TagController::class, 'show'])->name('tag.show');
@@ -32,6 +33,8 @@ Route::post('/newsletter/subscribe', [NewsletterController::class, 'subscribe'])
 Route::post('/poll/{id}/vote', [PollController::class, 'vote'])->name('poll.vote');
 Route::get('/coming-soon', [PageController::class, 'comingSoon'])->name('coming-soon');
 Route::get('/weather/refresh', [HomeController::class, 'refreshWeather'])->name('weather.refresh');
+Route::get('/videos', [HomeController::class, 'videos'])->name('videos.all');
+Route::get('/top-stories', [HomeController::class, 'topStories'])->name('lead-news.all');
 
 /*
 |--------------------------------------------------------------------------

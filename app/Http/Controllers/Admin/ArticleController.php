@@ -33,7 +33,7 @@ class ArticleController extends Controller
             'title' => 'required|string|max:255',
             'content' => 'required|string',
             'category_id' => 'required|exists:categories,id',
-            'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
+            'thumbnail' => 'nullable|file',
             'status' => 'required|in:draft,published',
         ]);
 
@@ -52,7 +52,7 @@ class ArticleController extends Controller
             'slug' => $slug,
             'content' => $request->content,
             'excerpt' => $request->excerpt ?? Str::limit(strip_tags($request->content), 150),
-            'thumbnail_url' => $thumbnailPath ? asset($thumbnailPath) : null,
+            'thumbnail_url' => $thumbnailPath,
             'category_id' => $request->category_id,
             'user_id' => auth()->id(),
             'status' => $request->status,
@@ -88,7 +88,7 @@ class ArticleController extends Controller
             'title' => 'required|string|max:255',
             'content' => 'required|string',
             'category_id' => 'required|exists:categories,id',
-            'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
+            'thumbnail' => 'nullable|file',
             'status' => 'required|in:draft,published',
         ]);
 
@@ -119,7 +119,7 @@ class ArticleController extends Controller
             'slug' => $slug,
             'content' => $request->content,
             'excerpt' => $request->excerpt ?? Str::limit(strip_tags($request->content), 150),
-            'thumbnail_url' => $thumbnailPath ? (str_starts_with($thumbnailPath, 'http') ? $thumbnailPath : asset($thumbnailPath)) : $article->thumbnail_url,
+            'thumbnail_url' => $thumbnailPath,
             'category_id' => $request->category_id,
             'status' => $request->status,
             'is_breaking' => $request->has('is_breaking'),

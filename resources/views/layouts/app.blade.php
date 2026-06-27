@@ -70,7 +70,7 @@
           <button class="btn-search" id="search-toggle" aria-label="অনুসন্ধান করুন">
             <i class="fas fa-search"></i>
           </button>
-          <button class="btn-subscribe">সাবস্ক্রাইব করুন</button>
+          <button class="btn-subscribe" id="btn-subscribe-top">সাবস্ক্রাইব করুন</button>
         </div>
       </div>
     </div>
@@ -124,8 +124,8 @@
       <i class="fas fa-times"></i>
     </button>
     <div class="search-box">
-      <form class="search-input-wrap" role="search" action="{{ route('home') }}" method="GET">
-        <input type="search" name="search" id="search-input" placeholder="কী খুঁজছেন? এখানে লিখুন..." aria-label="অনুসন্ধান" value="{{ request('search') }}">
+      <form class="search-input-wrap" role="search" action="{{ route('search') }}" method="GET">
+        <input type="search" name="q" id="search-input" placeholder="কী খুঁজছেন? এখানে লিখুন..." aria-label="অনুসন্ধান" value="{{ request('q') }}">
         <button type="submit" aria-label="অনুসন্ধান করুন"><i class="fas fa-search"></i></button>
       </form>
     </div>
@@ -225,6 +225,29 @@
     <i class="fas fa-arrow-up"></i>
   </button>
 
+  <!-- ===== SUBSCRIBE MODAL ===== -->
+  <div id="subscribeModal" class="subscribe-modal" role="dialog" aria-modal="true" aria-labelledby="subscribe-modal-title">
+    <div class="subscribe-modal-content">
+      <button class="subscribe-modal-close" id="subscribe-modal-close" aria-label="বন্ধ করুন">✕</button>
+      <div class="subscribe-modal-header">
+        <h3 id="subscribe-modal-title">নিউজহান্ট নিউজলেটার</h3>
+        <p>সর্বশেষ খবরের আপডেট পেতে আমাদের নিউজলেটারে সাবস্ক্রাইব করুন</p>
+      </div>
+      <form id="subscribe-modal-form">
+        <div class="form-group">
+          <label for="subscribe-name">আপনার নাম</label>
+          <input type="text" id="subscribe-name" name="name" placeholder="যেমন: রহিত শর্মা" autocomplete="name">
+        </div>
+        <div class="form-group">
+          <label for="subscribe-email">আপনার ইমেইল ঠিকানা <span class="required">*</span></label>
+          <input type="email" id="subscribe-email" name="email" placeholder="যেমন: name@example.com" required autocomplete="email">
+        </div>
+        <div id="subscribe-modal-msg" class="subscribe-msg"></div>
+        <button type="submit" class="btn-submit-subscribe">সাবস্ক্রাইব করুন</button>
+      </form>
+    </div>
+  </div>
+
   <script src="{{ asset('js/app.js') }}"></script>
   
   <!-- AJAX and Interactive Scripts -->
@@ -288,6 +311,127 @@
             newsSubmitBtn.textContent = 'সাবস্ক্রাইব করুন';
           });
         });
+      }
+
+      // 1b. AJAX Subscribe popup (Header button)
+      const btnSubscribeTop = document.getElementById('btn-subscribe-top');
+      const subscribeModal = document.getElementById('subscribeModal');
+      const closeSubscribeModal = document.getElementById('subscribe-modal-close');
+      const subscribeForm = document.getElementById('subscribe-modal-form');
+      const subscribeMsg = document.getElementById('subscribe-modal-msg');
+
+      if (btnSubscribeTop && subscribeModal && closeSubscribeModal) {
+        btnSubscribeTop.addEventListener('click', (e) => {
+          e.preventDefault();
+          subscribeModal.style.display = 'flex';
+          document.body.style.overflow = 'hidden';
+        });
+
+        const closeSubscribe = () => {
+          subscribeModal.style.display = 'none';
+          document.body.style.overflow = '';
+          if (subscribeForm) {
+            subscribeForm.reset();
+          }
+          if (subscribeMsg) {
+            subscribeMsg.style.display = 'none';
+            subscribeMsg.textContent = '';
+          }
+        };
+
+        closeSubscribeModal.addEventListener('click', closeSubscribe);
+        subscribeModal.addEventListener('click', (e) => {
+          if (e.target === subscribeModal) {
+            closeSubscribe();
+          }
+        });
+
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && subscribeModal.style.display === 'flex') {
+            closeSubscribe();
+          }
+        });
+
+        if (subscribeForm) {
+          subscribeForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const nameInput = document.getElementById('subscribe-name');
+            const emailInput = document.getElementById('subscribe-email');
+            const submitBtn = subscribeForm.querySelector('.btn-submit-subscribe');
+
+            const name = nameInput ? nameInput.value.trim() : '';
+            const email = emailInput ? emailInput.value.trim() : '';
+
+            if (!email) {
+              if (emailInput) {
+                emailInput.style.border = '1.5px solid #e8101a';
+                setTimeout(() => emailInput.style.border = '', 2000);
+              }
+              return;
+            }
+
+            if (submitBtn) {
+              submitBtn.disabled = true;
+              submitBtn.textContent = 'অপেক্ষা করুন...';
+            }
+
+            fetch("{{ route('newsletter.subscribe') }}", {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': csrfToken
+              },
+              body: JSON.stringify({ name: name, email: email })
+            })
+            .then(res => res.json())
+            .then(data => {
+              if (subscribeMsg) {
+                subscribeMsg.style.display = 'block';
+                subscribeMsg.textContent = data.message;
+                if (data.success) {
+                  subscribeMsg.style.color = '#15803d';
+                  subscribeMsg.style.background = '#f0fdf4';
+                  subscribeMsg.style.border = '1px solid #bbf7d0';
+                  if (emailInput) emailInput.value = '';
+                  if (nameInput) nameInput.value = '';
+                  if (submitBtn) {
+                    submitBtn.textContent = '✓ সফল হয়েছে!';
+                    submitBtn.style.background = '#16a34a';
+                  }
+                  setTimeout(() => {
+                    closeSubscribe();
+                    if (submitBtn) {
+                      submitBtn.disabled = false;
+                      submitBtn.textContent = 'সাবস্ক্রাইব করুন';
+                      submitBtn.style.background = '';
+                    }
+                  }, 2500);
+                } else {
+                  subscribeMsg.style.color = '#b91c1c';
+                  subscribeMsg.style.background = '#fef2f2';
+                  subscribeMsg.style.border = '1px solid #fca5a5';
+                  if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'সাবস্ক্রাইব করুন';
+                  }
+                }
+              }
+            })
+            .catch(err => {
+              if (subscribeMsg) {
+                subscribeMsg.style.display = 'block';
+                subscribeMsg.style.color = '#b91c1c';
+                subscribeMsg.style.background = '#fef2f2';
+                subscribeMsg.style.border = '1px solid #fca5a5';
+                subscribeMsg.textContent = 'সার্ভারে সমস্যা হয়েছে, আবার চেষ্টা করুন।';
+              }
+              if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'সাবস্ক্রাইব করুন';
+              }
+            });
+          });
+        }
       }
 
       // 2. AJAX Opinion Poll voting

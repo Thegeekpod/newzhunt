@@ -16,7 +16,7 @@ class AppServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
-        view()->composer(['layouts.app', 'home', 'category', 'article', 'coming-soon'], function ($view) {
+        view()->composer(['layouts.app', 'home', 'category', 'article', 'coming-soon', 'search', 'videos', 'top-news'], function ($view) {
             $popular = \App\Models\Article::published()->where('is_popular', true)->orderBy('view_count', 'desc')->take(5)->get();
             if ($popular->isEmpty()) {
                 $popular = \App\Models\Article::published()->orderBy('view_count', 'desc')->take(5)->get();
