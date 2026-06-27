@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>রাজনীতি – সর্বশেষ রাজনৈতিক সংবাদ ও বিশ্লেষণ | নিউজহান্ট</title>
+  <meta name="description"
+    content="নিউজহান্ট রাজনীতি – দেশ, রাজ্য ও বিশ্বের সর্বশেষ রাজনৈতিক সংবাদ, নির্বাচনী আলোচনা, দলীয় বৈঠক ও রাজনৈতিক বিশ্লেষণ।">
+  <meta property="og:title" content="রাজনীতি – সর্বশেষ রাজনৈতিক সংবাদ ও বিশ্লেষণ | নিউজহান্ট">
+  <meta property="og:description" content="দেশ ও রাজ্যের রাজনৈতিক খবরের সর্বশেষ আপডেট পড়ুন নিউজহান্টে।">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://newzhunt.com/category.html">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+  <!-- ===== TOP BAR ===== -->
+  <div class="top-bar">
+    <div class="container">
+      <div class="top-bar-inner">
+        <div class="top-bar-date">
+          <i class="fas fa-calendar-alt"></i>
+          <span id="current-date">সোমবার, ২ জুন ২০২৬</span>
+        </div>
+        <div class="top-bar-links">
+          <a href="#">ই-পেপার</a>
+          <a href="#">বিজ্ঞাপন</a>
+          <a href="#">যোগাযোগ</a>
+          <a href="#">আমাদের সম্পর্কে</a>
+        </div>
+        <div class="top-bar-social">
+          <a href="#" title="Facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" title="Twitter" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+          <a href="#" title="YouTube" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="#" title="Instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" title="WhatsApp" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== HEADER ===== -->
+  <header class="site-header" id="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <!-- Logo -->
+        <a href="index.html" class="site-logo" aria-label="নিউজহান্ট হোম">
+          <div class="logo-name">
+            <span>নিউজ</span><span>হান্ট</span>
+          </div>
+          <div class="logo-tagline">Bengali News Portal</div>
+        </a>
+
+        <!-- Actions -->
+        <div class="header-actions">
+          <button class="btn-search" id="search-toggle" aria-label="অনুসন্ধান করুন">
+            <i class="fas fa-search"></i>
+          </button>
+          <button class="btn-subscribe">সাবস্ক্রাইব করুন</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="main-nav" role="navigation" aria-label="প্রধান মেনু">
+    <div class="container">
+      <div class="nav-inner">
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="index.html">হোম</a></li>
+          <li class="active"><a href="category.html">রাজনীতি</a></li>
+          <li><a href="#">আন্তর্জাতিক</a></li>
+          <li><a href="#">খেলা</a></li>
+          <li><a href="#">বিনোদন</a></li>
+          <li><a href="#">টাকা পয়সা</a></li>
+          <li><a href="#">প্রযুক্তি</a></li>
+          <li><a href="#">স্বাস্থ্য</a></li>
+          <li><a href="#">লাইফস্টাইল</a></li>
+          <li><a href="#">আবহাওয়া</a></li>
+          <li><a href="#">ভিডিও</a></li>
+          <li><a href="#">ফটো</a></li>
+        </ul>
+        <button class="nav-toggle" id="nav-toggle" aria-label="মেনু খুলুন" aria-expanded="false">
+          <i class="fas fa-bars" style="font-size: 20px;"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== BREAKING NEWS TICKER ===== -->
+  <div class="breaking-ticker">
+    <div class="container">
+      <div class="ticker-inner">
+        <div class="ticker-label">
+          <span class="ticker-dot"></span>
+          ব্রেকিং নিউজ
+        </div>
+        <div class="ticker-track">
+          <div class="ticker-content" id="ticker">
+            <a class="ticker-item" href="article.html">কেন্দ্রীয় বাজেট ২০২৬-২৭ ঘোষণা — মধ্যবিত্তদের জন্য বড় সুখবর</a>
+            <a class="ticker-item" href="article.html">ভারত-পাকিস্তান সীমান্তে উত্তেজনা বাড়ছে, সেনা মোতায়েন</a>
+            <a class="ticker-item" href="article.html">পশ্চিমবঙ্গে তীব্র তাপপ্রবাহ, ৪৫ ডিগ্রি ছুঁয়েছে পারদ</a>
+            <a class="ticker-item" href="article.html">আইপিএল ২০২৬: কলকাতা নাইট রাইডার্স ফাইনালে</a>
+            <a class="ticker-item" href="article.html">শেয়ার বাজারে ধস — সেনসেক্স ১৫০০ পয়েন্ট নিচে</a>
+            <a class="ticker-item" href="article.html">বাংলাদেশে আকস্মিক বন্যা, ৫ লক্ষ মানুষ ক্ষতিগ্রস্ত</a>
+            <!-- Duplicate for infinite loop -->
+            <a class="ticker-item" href="article.html">কেন্দ্রীয় বাজেট ২০২৬-২৭ ঘোষণা — মধ্যবিত্তদের জন্য বড় সুখবর</a>
+            <a class="ticker-item" href="article.html">ভারত-পাকিস্তান সীমান্তে উত্তেজনা বাড়ছে, সেনা মোতায়েন</a>
+            <a class="ticker-item" href="article.html">পশ্চিমবঙ্গে তীব্র তাপপ্রবাহ, ৪৫ ডিগ্রি ছুঁয়েছে পারদ</a>
+            <a class="ticker-item" href="article.html">আইপিএল ২০২৬: কলকাতা নাইট রাইডার্স ফাইনালে</a>
+            <a class="ticker-item" href="article.html">শেয়ার বাজারে ধস — সেনসেক্স ১৫০০ পয়েন্ট নিচে</a>
+            <a class="ticker-item" href="article.html">বাংলাদেশে আকস্মিক বন্যা, ৫ লক্ষ মানুষ ক্ষতিগ্রস্ত</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SEARCH OVERLAY ===== -->
+  <div class="search-overlay" id="search-overlay" role="dialog" aria-modal="true" aria-label="অনুসন্ধান">
+    <button class="search-close" id="search-close" aria-label="বন্ধ করুন">
+      <i class="fas fa-times"></i>
+    </button>
+    <div class="search-box">
+      <form class="search-input-wrap" role="search" onsubmit="return false;">
+        <input type="search" id="search-input" placeholder="কী খুঁজছেন? এখানে লিখুন..." aria-label="অনুসন্ধান">
+        <button type="submit" aria-label="অনুসন্ধান করুন"><i class="fas fa-search"></i></button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main id="main-content">
+
+    <!-- ===== BREADCRUMB & CATEGORY HEADER ===== -->
+    <div class="container" style="margin-top: 20px;">
+      <!-- Breadcrumb -->
+      <nav class="article-breadcrumb" aria-label="ব্রেডক্রাম্ব">
+        <a href="index.html">হোম</a>
+        <span>›</span>
+        <span>রাজনীতি</span>
+      </nav>
+
+      <!-- Category Header Banner -->
+      <div class="category-header">
+        <div class="category-header-inner">
+          <div class="category-title-wrap">
+            <h1 class="category-badge-title">রাজনীতি</h1>
+            <p class="category-desc">দেশ, রাজ্য ও বিশ্বের সর্বশেষ রাজনৈতিক সংবাদ, নির্বাচনী আলোচনা, দলীয় রদবদল, আইনসভার গতিবিধি ও নিরপেক্ষ রাজনৈতিক বিশ্লেষণ।</p>
+          </div>
+          <div class="category-stats">
+            <div class="category-stat-item">
+              <i class="fas fa-newspaper"></i>
+              <span>১২,৪৫০+ নিবন্ধ</span>
+            </div>
+            <div class="category-stat-item">
+              <i class="fas fa-users"></i>
+              <span>৩.৫ লক্ষ পাঠক</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== MAIN CONTENT LAYOUT ===== -->
+    <div class="main-layout">
+      <div class="container">
+        <div class="content-sidebar">
+
+          <!-- === LEFT COLUMN: NEWS === -->
+          <div class="main-content-area">
+
+            <!-- Featured Politics Grid (Hero Style) -->
+            <div class="hero-grid">
+              <!-- Hero Main -->
+              <article class="news-card hero-main">
+                <div class="card-img-wrap">
+                  <a href="article.html">
+                    <img src="https://picsum.photos/seed/polhero1/800/480" alt="নির্বাচন প্রচার" loading="eager">
+                  </a>
+                  <span class="card-category">রাজনীতি</span>
+                </div>
+                <div class="card-body">
+                  <a href="article.html">
+                    <h2 class="card-title">বিধানসভা নির্বাচন ২০২৬: জোরকদমে প্রচার শুরু রাজনৈতিক দলগুলির, ইস্তাহার প্রকাশের প্রস্তুতি তুঙ্গে</h2>
+                  </a>
+                  <p class="card-excerpt">আসন্ন বিধানসভা নির্বাচনকে কেন্দ্র করে রাজ্য রাজনীতিতে দলগুলির তৎপরতা বৃদ্ধি পেয়েছে। সমস্ত দলই নিজেদের নির্বাচনী রণকৌশল তৈরি করতে বৈঠক শুরু করেছে এবং ভোটারদের কাছে টানতে নতুন প্রতিশ্রুতি ও জনসভার পরিকল্পনা চলছে।</p>
+                  <div class="card-meta">
+                    <span class="card-meta-item"><i class="fas fa-user"></i> সুজয় গুহ</span>
+                    <span class="card-meta-item"><i class="fas fa-clock"></i> ৩০ মিনিট আগে</span>
+                    <span class="card-meta-item"><i class="fas fa-eye"></i> ৮,২৪৫</span>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Hero Side 1 -->
+              <article class="news-card hero-side1">
+                <div class="card-img-wrap">
+                  <a href="article.html">
+                    <img src="https://picsum.photos/seed/polhero2/600/360" alt="সংসদ অধিবেশন" loading="lazy">
+                  </a>
+                  <span class="card-category">রাজনীতি</span>
+                </div>
+                <div class="card-body">
+                  <a href="article.html">
+                    <h3 class="card-title">সংসদে বাজেট অধিবেশন: কর কাঠামো পরিবর্তন নিয়ে অর্থমন্ত্রীর জবাবি ভাষণ আজ</h3>
+                  </a>
+                  <div class="card-meta">
+                    <span class="card-meta-item"><i class="fas fa-clock"></i> ২ ঘণ্টা আগে</span>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Hero Side 2 -->
+              <article class="news-card hero-side2">
+                <div class="card-img-wrap">
+                  <a href="article.html">
+                    <img src="https://picsum.photos/seed/polhero3/600/360" alt="দলীয় সভা" loading="lazy">
+                  </a>
+                  <span class="card-category">রাজনীতি</span>
+                </div>
+                <div class="card-body">
+                  <a href="article.html">
+                    <h3 class="card-title">জেলায় জেলায় তৃণমূলের সাংগঠনিক পরিবর্তন, নতুন নেতৃত্বের হাতে দায়িত্ব</h3>
+                  </a>
+                  <div class="card-meta">
+                    <span class="card-meta-item"><i class="fas fa-clock"></i> ৪ ঘণ্টা আগে</span>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <!-- AD BANNER AFTER TOP NEWS -->
+            <div class="ad-banner-horizontal">
+              <span class="ad-banner-tag">বিজ্ঞাপন</span>
+              <a href="#" class="ad-banner-link">
+                <img src="assets/ad_banner_premium.png" alt="বিজ্ঞাপন" loading="lazy">
+              </a>
+            </div>
+
+            <!-- Category Section Grid -->
+            <div class="category-section">
+              <div class="section-header">
+                <h2 class="section-title">সব রাজনৈতিক খবর</h2>
+              </div>
+              <div class="cards-grid-3">
+                <!-- Card 1 -->
+                <article class="news-card">
+                  <div class="card-img-wrap">
+                    <a href="article.html">
+                      <img src="https://picsum.photos/seed/pol1/600/380" alt="রাজনৈতিক সংবাদ" loading="lazy">
+                    </a>
+                    <span class="card-category">রাজনীতি</span>
+                  </div>
+                  <div class="card-body">
+                    <a href="article.html">
+                      <h3 class="card-title">লোকসভায় বিরোধীদের হইচই, কেন্দ্রীয় নীতি নিয়ে তুমুল বিতর্ক</h3>
+                    </a>
+                    <div class="card-meta">
+                      <span class="card-meta-item"><i class="fas fa-clock"></i> ৫ ঘণ্টা আগে</span>
+                    </div>
+                  </div>
+                </article>
+                <!-- Card 2 -->
+                <article class="news-card">
+                  <div class="card-img-wrap">
+                    <a href="article.html">
+                      <img src="https://picsum.photos/seed/pol2/600/380" alt="মিছিল" loading="lazy">
+                    </a>
+                    <span class="card-category">রাজনীতি</span>
+                  </div>
+                  <div class="card-body">
+                    <a href="article.html">
+                      <h3 class="card-title">মমতা ব্যানার্জির নেতৃত্বে তৃণমূল কংগ্রেসের বিশাল পদযাত্রা কলকাতায়</h3>
+                    </a>
+                    <div class="card-meta">
+                      <span class="card-meta-item"><i class="fas fa-clock"></i> ৭ ঘণ্টা আগে</span>
+                    </div>
+                  </div>
+                </article>
+                <!-- Card 3 -->
+                <article class="news-card">
+                  <div class="card-img-wrap">
+                    <a href="article.html">
+                      <img src="https://picsum.photos/seed/pol3/600/380" alt="সাংবাদিক সম্মেলন" loading="lazy">
+                    </a>
+                    <span class="card-category">রাজনীতি</span>
+                  </div>
+                  <div class="card-body">
+                    <a href="article.html">
+                      <h3 class="card-title">কংগ্রেসের নতুন কৌশল — জোট শরিকদের নিয়ে আসন বণ্টন নিয়ে আলোচনা</h3>
+                    </a>
+                    <div class="card-meta">
+                      <span class="card-meta-item"><i class="fas fa-clock"></i> ৮ ঘণ্টা আগে</span>
+                    </div>
+                  </div>
+                </article>
+                <!-- Card 4 -->
+                <article class="news-card">
+                  <div class="card-img-wrap">
+                    <a href="article.html">
+                      <img src="https://picsum.photos/seed/pol4/600/380" alt="রাজনৈতিক সভা" loading="lazy">
+                    </a>
+                    <span class="card-category">রাজনীতি</span>
+                  </div>
+                  <div class="card-body">
+                    <a href="article.html">
+                      <h3 class="card-title">বিজেপির নতুন প্রচার কর্মসূচি — বুথ স্তরে শক্তি বৃদ্ধিতে বিশেষ নজর</h3>
+                    </a>
+                    <div class="card-meta">
+                      <span class="card-meta-item"><i class="fas fa-clock"></i> ৯ ঘণ্টা আগে</span>
+                    </div>
+                  </div>
+                </article>
+                <!-- Card 5 -->
+                <article class="news-card">
+                  <div class="card-img-wrap">
+                    <a href="article.html">
+                      <img src="https://picsum.photos/seed/pol5/600/380" alt="মুখ্যমন্ত্রী সভা" loading="lazy">
+                    </a>
+                    <span class="card-category">রাজনীতি</span>
+                  </div>
+                  <div class="card-body">
+                    <a href="article.html">
+                      <h3 class="card-title">দিল্লির রাজনৈতিক পরিস্থিতি — নতুন মুখ্যমন্ত্রী পদের দাবিদারদের তালিকা</h3>
+                    </a>
+                    <div class="card-meta">
+                      <span class="card-meta-item"><i class="fas fa-clock"></i> ১০ ঘণ্টা আগে</span>
+                    </div>
+                  </div>
+                </article>
+                <!-- Card 6 -->
+                <article class="news-card">
+                  <div class="card-img-wrap">
+                    <a href="article.html">
+                      <img src="https://picsum.photos/seed/pol6/600/380" alt="নির্বাচন কমিশন" loading="lazy">
+                    </a>
+                    <span class="card-category">রাজনীতি</span>
+                  </div>
+                  <div class="card-body">
+                    <a href="article.html">
+                      <h3 class="card-title">নির্বাচন কমিশনের সর্বদলীয় বৈঠক — ভোটার তালিকা সংশোধন নিয়ে আলোচনা</h3>
+                    </a>
+                    <div class="card-meta">
+                      <span class="card-meta-item"><i class="fas fa-clock"></i> ১২ ঘণ্টা আগে</span>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <!-- AD BANNER MID -->
+            <div class="ad-banner-horizontal" style="margin-top: 24px;">
+              <span class="ad-banner-tag">বিজ্ঞাপন</span>
+              <a href="#" class="ad-banner-link">
+                <img src="assets/ad_banner_travel.png" alt="বিজ্ঞাপন" loading="lazy">
+              </a>
+            </div>
+
+            <!-- Category Section List style (Horizontal Cards) -->
+            <div class="category-section" style="margin-top: 28px;">
+              <div class="section-header">
+                <h2 class="section-title">বিশ্লেষণ ও বিশেষ প্রতিবেদন</h2>
+              </div>
+              <div class="card-list">
+                <article class="card-horizontal">
+                  <div class="card-img-wrap">
+                    <a href="article.html">
+                      <img src="https://picsum.photos/seed/pol7/300/200" alt="বিশ্লেষণ" loading="lazy">
+                    </a>
+                  </div>
+                  <div class="card-body">
+                    <span class="card-category" style="position:static; display:inline-block; margin-bottom: 4px;">রাজনীতি</span>
+                    <a href="article.html">
+                      <h3 class="card-title">আসন্ন নির্বাচনে যুব ভোটারদের ভূমিকা কী হতে চলেছে? বিশদ সমীক্ষা রিপোর্ট</h3>
+                    </a>
+                    <p class="card-excerpt" style="font-size: 13px; color: var(--text-medium); line-height: 1.5; margin-top: 4px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">এই বছরের নির্বাচনে প্রথমবার vote দেবেন এমন লক্ষাধিক ভোটারের সংখ্যা বৃদ্ধি পেয়েছে। তাদের মনোভাব এবং পছন্দের দিকগুলি নিয়ে একটি বিস্তারিত সমীক্ষা করেছে নিউজহান্ট।</p>
+                    <div class="card-meta" style="margin-top: 6px;"><span class="card-meta-item"><i class="fas fa-clock"></i> ১ দিন আগে</span></div>
+                  </div>
+                </article>
+                <article class="card-horizontal">
+                  <div class="card-img-wrap">
+                    <a href="article.html">
+                      <img src="https://picsum.photos/seed/pol8/300/200" alt="বিশ্লেষণ ২" loading="lazy">
+                    </a>
+                  </div>
+                  <div class="card-body">
+                    <span class="card-category" style="position:static; display:inline-block; margin-bottom: 4px;">রাজনীতি</span>
+                    <a href="article.html">
+                      <h3 class="card-title">আঞ্চলিক রাজনীতির সমীকরণ বনাম জাতীয় জোট: কার পাল্লা ভারী?</h3>
+                    </a>
+                    <p class="card-excerpt" style="font-size: 13px; color: var(--text-medium); line-height: 1.5; margin-top: 4px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">দেশজুড়ে জোট রাজনীতির নতুন সমীকরণ তৈরি হওয়ার ফলে স্থানীয় দলগুলির দর কষাকষির ক্ষমতা অনেক বেড়ে গিয়েছে। বিশেষ রাজনৈতিক কলাম।</p>
+                    <div class="card-meta" style="margin-top: 6px;"><span class="card-meta-item"><i class="fas fa-clock"></i> ২ দিন আগে</span></div>
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <!-- PAGINATION -->
+            <div class="pagination" role="navigation" aria-label="পৃষ্ঠা নেভিগেশন">
+              <button class="page-btn" aria-label="আগের পৃষ্ঠা"><i class="fas fa-chevron-left"></i></button>
+              <button class="page-btn active" aria-label="পৃষ্ঠা ১">১</button>
+              <button class="page-btn" aria-label="পৃষ্ঠা ২">২</button>
+              <button class="page-btn" aria-label="পৃষ্ঠা ৩">৩</button>
+              <button class="page-btn" aria-label="পৃষ্ঠা ৪">৪</button>
+              <button class="page-btn" aria-label="পৃষ্ঠা ৫">৫</button>
+              <button class="page-btn" aria-label="পরের পৃষ্ঠা"><i class="fas fa-chevron-right"></i></button>
+            </div>
+
+          </div><!-- /main-content-area -->
+
+          <!-- === RIGHT COLUMN: SIDEBAR === -->
+          <aside class="sidebar" aria-label="সাইডবার">
+
+            <!-- Weather Widget -->
+            <div class="weather-widget">
+              <div class="weather-header">
+                <div>
+                  <div class="weather-location">কলকাতা, পশ্চিমবঙ্গ</div>
+                  <div class="weather-date" id="weather-date">সোমবার, ২ জুন ২০২৬</div>
+                </div>
+                <i class="fas fa-cloud-sun" style="font-size: 28px; opacity: 0.8;"></i>
+              </div>
+              <div class="weather-main">
+                <div class="weather-icon">☀️</div>
+                <div>
+                  <div class="weather-temp">৩৮<sup>°C</sup></div>
+                  <div class="weather-desc">আংশিক মেঘলা</div>
+                </div>
+              </div>
+              <div class="weather-details">
+                <div class="weather-detail-item"><span>আর্দ্রতা</span><span>৭২%</span></div>
+                <div class="weather-detail-item"><span>বায়ু গতি</span><span>১৮ km/h</span></div>
+                <div class="weather-detail-item"><span>সর্বোচ্চ</span><span>৪১°C</span></div>
+                <div class="weather-detail-item"><span>সর্বনিম্ন</span><span>২৮°C</span></div>
+              </div>
+            </div>
+
+            <!-- Popular News Widget -->
+            <div class="widget">
+              <div class="widget-header">
+                <div class="widget-header-left">
+                  <span class="widget-header-icon"><i class="fas fa-fire"></i></span>
+                  সবচেয়ে জনপ্রিয়
+                </div>
+                <a href="#" class="widget-header-link">সব দেখুন <i class="fas fa-chevron-right" style="font-size:9px;"></i></a>
+              </div>
+              <div class="widget-body">
+                <div class="popular-list">
+                  <a href="article.html" class="popular-item">
+                    <span class="popular-num">১</span>
+                    <div>
+                      <div class="popular-title">কেন্দ্রীয় বাজেটে মধ্যবিত্তদের জন্য বড় স্বস্তি, কমল আয়কর</div>
+                      <div class="popular-meta"><i class="fas fa-eye"></i> ১২,৪৫৬ পাঠক</div>
+                    </div>
+                  </a>
+                  <a href="article.html" class="popular-item">
+                    <span class="popular-num">২</span>
+                    <div>
+                      <div class="popular-title">আইপিএল ২০২৬ ফাইনালে কেকেআর — এই প্রথম এত বড় স্কোর</div>
+                      <div class="popular-meta"><i class="fas fa-eye"></i> ৯,৮৭৬ পাঠক</div>
+                    </div>
+                  </a>
+                  <a href="article.html" class="popular-item">
+                    <span class="popular-num">৩</span>
+                    <div>
+                      <div class="popular-title">সোনার দাম আজ ইতিহাসের সর্বোচ্চ — বিনিয়োগ কি এখনই করবেন?</div>
+                      <div class="popular-meta"><i class="fas fa-eye"></i> ৮,২৩৪ পাঠক</div>
+                    </div>
+                  </a>
+                  <a href="article.html" class="popular-item">
+                    <span class="popular-num">৪</span>
+                    <div>
+                      <div class="popular-title">ভারত-پاکستان সীমান্তে উত্তেজনা, সরকারি ঘোষণা</div>
+                      <div class="popular-meta"><i class="fas fa-eye"></i> ৭,৬৫৪ পাঠক</div>
+                    </div>
+                  </a>
+                  <a href="article.html" class="popular-item">
+                    <span class="popular-num">৫</span>
+                    <div>
+                      <div class="popular-title">বাংলাদেশে বন্যায় বিপর্যস্ত লক্ষ লক্ষ মানুষ</div>
+                      <div class="popular-meta"><i class="fas fa-eye"></i> ৬,৩৪৫ পাঠক</div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Ad Widget -->
+            <div class="widget ad-widget">
+              <div class="ad-placeholder">
+                <i class="fas fa-rectangle-ad" style="font-size: 28px;"></i>
+                <span>Advertisement · 300×250</span>
+              </div>
+            </div>
+
+            <!-- Latest News Widget -->
+            <div class="widget">
+              <div class="widget-header">
+                <div class="widget-header-left">
+                  <span class="widget-header-icon"><i class="fas fa-bolt"></i></span>
+                  সর্বশেষ সংবাদ
+                </div>
+                <a href="#" class="widget-header-link">সব <i class="fas fa-chevron-right" style="font-size:9px;"></i></a>
+              </div>
+              <div class="widget-body">
+                <a href="article.html" class="latest-item">
+                  <div class="latest-thumb-wrap">
+                    <img src="https://picsum.photos/seed/sb1/200/150" alt="পশ্চিমবঙ্গে তাপপ্রবাহ" class="latest-thumb" loading="lazy">
+                  </div>
+                  <div>
+                    <div class="latest-title">পশ্চিমবঙ্গে তাপপ্রবাহ সতর্কতা জারি, ৪৫ ডিগ্রি ছাড়াল পারদ</div>
+                    <div class="latest-time"><i class="fas fa-clock"></i> ৩০ মিনিট আগে</div>
+                  </div>
+                </a>
+                <a href="article.html" class="latest-item">
+                  <div class="latest-thumb-wrap">
+                    <img src="https://picsum.photos/seed/sb2/200/150" alt="G20 বৈঠক" class="latest-thumb" loading="lazy">
+                  </div>
+                  <div>
+                    <div class="latest-title">দিল্লিতে G20 পার্শ্ববৈঠক শুরু আজ, বাণিজ্য চুক্তির সম্ভাবনা</div>
+                    <div class="latest-time"><i class="fas fa-clock"></i> ১ ঘণ্টা আগে</div>
+                  </div>
+                </a>
+                <a href="article.html" class="latest-item">
+                  <div class="latest-thumb-wrap">
+                    <img src="https://picsum.photos/seed/sb3/200/150" alt="বৃষ্টির পূর্বাভাস" class="latest-thumb" loading="lazy">
+                  </div>
+                  <div>
+                    <div class="latest-title">মুম্বাইয়ে ভারী বৃষ্টির পূর্বাভাস, নিচু এলাকায় সতর্কতা</div>
+                    <div class="latest-time"><i class="fas fa-clock"></i> ২ ঘণ্টা আগে</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <!-- Tags Widget -->
+            <div class="widget">
+              <div class="widget-header">
+                <div class="widget-header-left">
+                  <span class="widget-header-icon"><i class="fas fa-hashtag"></i></span>
+                  জনপ্রিয় ট্যাগ
+                </div>
+              </div>
+              <div class="widget-body">
+                <div class="tag-cloud">
+                  <a href="#" class="tag-item tag-hot">রাজনীতি</a>
+                  <a href="#" class="tag-item tag-hot">ক্রিকেট</a>
+                  <a href="#" class="tag-item">বাজেট</a>
+                  <a href="#" class="tag-item">পশ্চিমবঙ্গ</a>
+                  <a href="#" class="tag-item">ভারত</a>
+                  <a href="#" class="tag-item">আবহাওয়া</a>
+                  <a href="#" class="tag-item tag-hot">আইপিএল</a>
+                  <a href="#" class="tag-item">শেয়ার বাজার</a>
+                  <a href="#" class="tag-item">বিনোদন</a>
+                  <a href="#" class="tag-item">প্রযুক্তি</a>
+                  <a href="#" class="tag-item">স্বাস্থ্য</a>
+                  <a href="#" class="tag-item">শিক্ষা</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Newsletter Widget -->
+            <div class="newsletter-widget">
+              <div class="newsletter-icon"><i class="fas fa-envelope-open-text"></i></div>
+              <div class="newsletter-title">নিউজলেটার</div>
+              <div class="newsletter-desc">প্রতিদিন সকালে সেরা খবর আপনার ইমেইলে পৌঁছে যাবে</div>
+              <input type="email" id="newsletter-email" placeholder="আপনার ইমেইল ঠিকানা" class="newsletter-input">
+              <button class="newsletter-btn" id="newsletter-submit">সাবস্ক্রাইব করুন</button>
+            </div>
+
+            <!-- Opinion Poll Widget -->
+            <div class="widget">
+              <div class="widget-header">
+                <div class="widget-header-left">
+                  <span class="widget-header-icon"><i class="fas fa-poll"></i></span>
+                  মতামত জরিপ
+                </div>
+              </div>
+              <div class="widget-body poll-widget">
+                <p class="poll-question">আপনার মতে বর্তমান সরকারের সবচেয়ে ভালো পদক্ষেপ কোনটি?</p>
+                <div class="poll-options">
+                  <label class="poll-option" data-vote="1">
+                    <input type="radio" name="poll" value="1">
+                    <span class="poll-label">বাজেটে কর ছাড়</span>
+                    <div class="poll-bar-wrap">
+                      <div class="poll-bar" style="--pct: 42%"><span>৪২%</span></div>
+                    </div>
+                  </label>
+                  <label class="poll-option" data-vote="2">
+                    <input type="radio" name="poll" value="2">
+                    <span class="poll-label">নতুন রেল প্রকল্প</span>
+                    <div class="poll-bar-wrap">
+                      <div class="poll-bar" style="--pct: 28%"><span>২৮%</span></div>
+                    </div>
+                  </label>
+                  <label class="poll-option" data-vote="3">
+                    <input type="radio" name="poll" value="3">
+                    <span class="poll-label">ডিজিটাল ভারত উদ্যোগ</span>
+                    <div class="poll-bar-wrap">
+                      <div class="poll-bar" style="--pct: 18%"><span>১৮%</span></div>
+                    </div>
+                  </label>
+                </div>
+                <div class="poll-footer">
+                  <span class="poll-total"><i class="fas fa-users"></i> ৪,৮৯২ ভোট</span>
+                  <button class="poll-vote-btn" id="poll-vote-btn">ভোট দিন</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Social Follow Widget -->
+            <div class="widget">
+              <div class="widget-header">
+                <div class="widget-header-left">
+                  <span class="widget-header-icon"><i class="fas fa-share-alt"></i></span>
+                  আমাদের ফলো করুন
+                </div>
+              </div>
+              <div class="widget-body social-follow-body">
+                <a href="#" class="social-follow-item facebook">
+                  <div class="social-follow-icon"><i class="fab fa-facebook-f"></i></div>
+                  <div class="social-follow-info">
+                    <span class="social-name">Facebook</span>
+                    <span class="social-count">২.৪ লক্ষ ফলোয়ার</span>
+                  </div>
+                  <span class="social-follow-btn">ফলো</span>
+                </a>
+                <a href="#" class="social-follow-item youtube">
+                  <div class="social-follow-icon"><i class="fab fa-youtube"></i></div>
+                  <div class="social-follow-info">
+                    <span class="social-name">YouTube</span>
+                    <span class="social-count">১.১ লক্ষ সাবস্ক্রাইবার</span>
+                  </div>
+                  <span class="social-follow-btn">সাবস্ক্রাইব</span>
+                </a>
+                <a href="#" class="social-follow-item twitter">
+                  <div class="social-follow-icon"><i class="fab fa-x-twitter"></i></div>
+                  <div class="social-follow-info">
+                    <span class="social-name">X (Twitter)</span>
+                    <span class="social-count">৮৭ হাজার ফলোয়ার</span>
+                  </div>
+                  <span class="social-follow-btn">ফলো</span>
+                </a>
+              </div>
+            </div>
+
+          </aside><!-- /sidebar -->
+        </div><!-- /content-sidebar -->
+      </div><!-- /container -->
+    </div><!-- /main-layout -->
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-grid">
+          <!-- Brand -->
+          <div class="footer-brand">
+            <h2>নিউজ<span>হান্ট</span></h2>
+            <p class="footer-desc">নিউজহান্ট বাংলার একটি বিশ্বাসযোগ্য ডিজিটাল নিউজ পোর্টাল। আমরা নিরপেক্ষ, তথ্যনিষ্ঠ এবং দায়িত্বশীল সাংবাদিকতার মাধ্যমে আপনার কাছে সর্বশেষ সংবাদ পৌঁছে দিই।</p>
+            <div class="footer-social">
+              <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+              <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+              <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+          </div>
+
+          <!-- Categories -->
+          <div class="footer-col">
+            <h3>বিভাগ</h3>
+            <div class="footer-links">
+              <a href="category.html">রাজনীতি</a>
+              <a href="#">আন্তর্জাতিক</a>
+              <a href="#">খেলাধুলা</a>
+              <a href="#">বিনোদন</a>
+              <a href="#">টাকা পয়সা</a>
+              <a href="#">প্রযুক্তি</a>
+            </div>
+          </div>
+
+          <!-- Quick Links -->
+          <div class="footer-col">
+            <h3>দ্রুত লিংক</h3>
+            <div class="footer-links">
+              <a href="#">আমাদের সম্পর্কে</a>
+              <a href="#">যোগাযোগ</a>
+              <a href="#">বিজ্ঞাপন</a>
+              <a href="#">ই-পেপার</a>
+              <a href="#">ক্যারিয়ার</a>
+            </div>
+          </div>
+
+          <!-- Legal -->
+          <div class="footer-col">
+            <h3>নীতিমালা</h3>
+            <div class="footer-links">
+              <a href="#">গোপনীয়তা নীতি</a>
+              <a href="#">ব্যবহারের শর্ত</a>
+              <a href="#">কপিরাইট নীতি</a>
+              <a href="#">সংশোধনী নীতি</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="footer-bottom">
+        <p class="copyright">© ২০২৬ নিউজহান্ট। সমস্ত অধিকার সংরক্ষিত।</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== MOBILE NAV ===== -->
+  <div class="mobile-nav" id="mobile-nav" role="dialog" aria-modal="true" aria-label="মোবাইল মেনু">
+    <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
+    <div class="mobile-nav-panel">
+      <div class="mobile-nav-header">
+        <span class="mobile-nav-title">নিউজহান্ট</span>
+        <button class="mobile-nav-close" id="mobile-nav-close" aria-label="মেনু বন্ধ করুন">✕</button>
+      </div>
+      <div class="mobile-menu-list">
+        <a href="index.html">হোম</a>
+        <a href="category.html" style="color: var(--primary-red);">রাজনীতি</a>
+        <a href="#">আন্তর্জাতিক</a>
+        <a href="#">খেলা</a>
+        <a href="#">বিনোদন</a>
+        <a href="#">টাকা পয়সা</a>
+        <a href="#">প্রযুক্তি</a>
+        <a href="#">স্বাস্থ্য</a>
+        <a href="#">লাইফস্টাইল</a>
+        <a href="#">আবহাওয়া</a>
+        <a href="#">ভিডিও</a>
+        <a href="#">ফটো</a>
+        <a href="#">যোগাযোগ</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SCROLL TO TOP ===== -->
+  <button class="scroll-top" id="scroll-top" aria-label="উপরে যান">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <script src="js/app.js"></script>
+</body>
+
+</html>
