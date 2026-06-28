@@ -213,4 +213,12 @@
     </div><!-- /content-sidebar -->
   </div><!-- /container -->
 </div><!-- /main-layout -->
+<style>
+  @media (max-width:768px) {
+    img {
+    height: auto !important;
+    width: auto;
+}
+  }
+  </style>
 @endsection
