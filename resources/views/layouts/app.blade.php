@@ -18,6 +18,18 @@
   <meta property="og:type" content="@yield('og_type', 'website')">
   <meta property="og:url" content="{{ request()->url() }}">
   <meta property="og:image" content="@yield('og_image', asset('assets/tech_future.png'))">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="{{ $g_settings['site_name'] ?? 'নিউজহান্ট' }}">
+  <meta property="og:locale" content="bn_BD">
+  @yield('og_article_meta')
+
+  {{-- Twitter / X Card --}}
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="@yield('title', $g_settings['site_name'] ?? 'নিউজহান্ট')">
+  <meta name="twitter:description" content="@yield('meta_description', 'সর্বশেষ বাংলা খবর পড়ুন নিউজহান্টে।')">
+  <meta name="twitter:image" content="@yield('og_image', asset('assets/tech_future.png'))">
+  <meta name="twitter:site" content="{{ '@'.($g_settings['twitter_handle'] ?? 'newzhunt') }}">
 
   <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">

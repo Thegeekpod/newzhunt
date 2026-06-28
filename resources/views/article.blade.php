@@ -1,10 +1,22 @@
 @extends('layouts.app')
 
 @section('title', $article->title)
-@section('meta_description', $article->excerpt)
-@section('keywords', $article->keywords)
+@section('meta_description', $article->excerpt ?? Str::limit(strip_tags($article->content), 160))
+@section('keywords', $article->keywords ?? $article->category->name_bn)
 @section('og_type', 'article')
-@section('og_image', $article->thumbnail_url)
+@section('og_image', $article->thumbnail_url ? (Str::startsWith($article->thumbnail_url, 'http') ? $article->thumbnail_url : url($article->thumbnail_url)) : asset('assets/tech_future.png'))
+
+@section('og_article_meta')
+  <meta property="article:published_time" content="{{ $article->published_at?->toIso8601String() }}">
+  <meta property="article:modified_time" content="{{ $article->updated_at?->toIso8601String() }}">
+  <meta property="article:author" content="{{ $article->author->name ?? 'নিউজহান্ট' }}">
+  <meta property="article:section" content="{{ $article->category->name_bn }}">
+  @if($article->tags->isNotEmpty())
+    @foreach($article->tags as $tag)
+      <meta property="article:tag" content="{{ $tag->name }}">
+    @endforeach
+  @endif
+@endsection
 
 @section('content')
 @php
