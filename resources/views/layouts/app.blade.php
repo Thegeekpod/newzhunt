@@ -233,7 +233,7 @@
       <div class="mobile-menu-list">
         <a href="{{ route('home') }}" class="{{ request()->routeIs('home') ? 'active' : '' }}">হোম</a>
         @foreach($g_categories as $cat)
-          <a href="{{ route('category.show', $cat->slug) }}" class="{{ (isset($category) && $category->slug === $cat->slug) ? 'active' : '' }}">{{ $cat->name_bn }}</a>
+          <a href="{{ route('category.show', $cat->slug) }}" class="{{ (isset($category->slug) && $category->slug === $cat->slug) ? 'active' : '' }}">{{ $cat->name_bn }}</a>
         @endforeach
         <a href="#">যোগাযোগ</a>
       </div>
