@@ -260,6 +260,14 @@
     </div>
   </div>
 
+  <!-- ===== VIDEO POPUP MODAL ===== -->
+  <div id="videoModal" class="video-modal">
+    <span class="close-video-modal">&times;</span>
+    <div class="video-modal-content">
+      <iframe id="videoIframe" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+
   <script src="{{ asset('js/app.js') }}"></script>
   
   <!-- AJAX and Interactive Scripts -->

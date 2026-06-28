@@ -52,7 +52,7 @@
                 <div class="card-meta">
                   <span class="card-meta-item"><i class="fas fa-user"></i> {{ $leadArticle->author->name }}</span>
                   <span class="card-meta-item"><i class="fas fa-clock"></i> {{ BengaliHelper::toBengaliTime($leadArticle->published_at) }}</span>
-                  <span class="card-meta-item"><i class="fas fa-eye"></i> {{ BengaliHelper::toBengaliNumerals(number_format($leadArticle->view_count)) }}</span>
+                  <span class="card-meta-item"><i class="fas fa-eye"></i> {{ BengaliHelper::toBengaliNumerals(number_format($leadArticle->display_view_count)) }}</span>
                 </div>
               </div>
             </article>
@@ -281,13 +281,7 @@
           </div>
         </div>
 
-        <!-- Video Gallery Modal Popup -->
-        <div id="videoModal" class="video-modal" style="display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; overflow: hidden; background-color: rgba(0,0,0,0.85); align-items: center; justify-content: center; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);">
-          <span class="close-video-modal" style="position: absolute; top: 20px; right: 30px; color: #fff; font-size: 40px; font-weight: bold; cursor: pointer; transition: 0.3s; z-index: 10000; opacity: 0.8;">&times;</span>
-          <div class="video-modal-content" style="position: relative; width: 90%; max-width: 800px; aspect-ratio: 16/9; background: #000; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
-            <iframe id="videoIframe" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
-          </div>
-        </div>
+
 
         <!-- AD BANNER AFTER VIDEO NEWS -->
         @if(isset($g_ads['homepage_middle']) && $g_ads['homepage_middle']->isNotEmpty())
@@ -362,7 +356,7 @@
                 img: "{{ $art->thumbnail_url ?? 'https://picsum.photos/seed/crick'.$art->id.'/300/200' }}",
                 title: "{{ $art->title }}",
                 time: "{{ BengaliHelper::toBengaliTime($art->published_at) }}",
-                views: "{{ BengaliHelper::toBengaliNumerals(number_format($art->view_count)) }}"
+                views: "{{ BengaliHelper::toBengaliNumerals(number_format($art->display_view_count)) }}"
             },
             @endforeach
         ],
@@ -372,7 +366,7 @@
                 img: "{{ $art->thumbnail_url ?? 'https://picsum.photos/seed/foot'.$art->id.'/300/200' }}",
                 title: "{{ $art->title }}",
                 time: "{{ BengaliHelper::toBengaliTime($art->published_at) }}",
-                views: "{{ BengaliHelper::toBengaliNumerals(number_format($art->view_count)) }}"
+                views: "{{ BengaliHelper::toBengaliNumerals(number_format($art->display_view_count)) }}"
             },
             @endforeach
         ],
@@ -382,7 +376,7 @@
                 img: "{{ $art->thumbnail_url ?? 'https://picsum.photos/seed/kabad'.$art->id.'/300/200' }}",
                 title: "{{ $art->title }}",
                 time: "{{ BengaliHelper::toBengaliTime($art->published_at) }}",
-                views: "{{ BengaliHelper::toBengaliNumerals(number_format($art->view_count)) }}"
+                views: "{{ BengaliHelper::toBengaliNumerals(number_format($art->display_view_count)) }}"
             },
             @endforeach
         ],
@@ -392,7 +386,7 @@
                 img: "{{ $art->thumbnail_url ?? 'https://picsum.photos/seed/oth'.$art->id.'/300/200' }}",
                 title: "{{ $art->title }}",
                 time: "{{ BengaliHelper::toBengaliTime($art->published_at) }}",
-                views: "{{ BengaliHelper::toBengaliNumerals(number_format($art->view_count)) }}"
+                views: "{{ BengaliHelper::toBengaliNumerals(number_format($art->display_view_count)) }}"
             },
             @endforeach
         ]

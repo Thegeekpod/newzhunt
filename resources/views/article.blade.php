@@ -113,7 +113,7 @@
               </div>
               <div class="card-meta-item" style="font-size:13px; color: var(--text-light);">
                 <i class="fas fa-eye"></i>
-                <span>{{ BengaliHelper::toBengaliNumerals(number_format($article->view_count)) }}</span>
+                <span>{{ BengaliHelper::toBengaliNumerals(number_format($article->display_view_count)) }}</span>
               </div>
               <div class="card-meta-item" style="font-size:13px; color: var(--text-light);">
                 <i class="fas fa-book-open"></i>

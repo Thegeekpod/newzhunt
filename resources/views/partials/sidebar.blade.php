@@ -44,7 +44,7 @@
         <span class="popular-num">{{ BengaliHelper::toBengaliNumerals($index + 1) }}</span>
         <div>
           <div class="popular-title">{{ $p_art->title }}</div>
-          <div class="popular-meta"><i class="fas fa-eye"></i> {{ BengaliHelper::toBengaliNumerals(number_format($p_art->view_count)) }} পাঠক</div>
+          <div class="popular-meta"><i class="fas fa-eye"></i> {{ BengaliHelper::toBengaliNumerals(number_format($p_art->display_view_count)) }} পাঠক</div>
         </div>
       </a>
       @endforeach

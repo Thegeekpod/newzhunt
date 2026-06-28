@@ -74,7 +74,7 @@
                     <div class="card-meta">
                       <span class="card-meta-item"><i class="fas fa-user"></i> {{ $first->author->name ?? 'সংবাদদাতা' }}</span>
                       <span class="card-meta-item"><i class="fas fa-clock"></i> {{ BengaliHelper::toBengaliTime($first->published_at) }}</span>
-                      <span class="card-meta-item"><i class="fas fa-eye"></i> {{ BengaliHelper::toBengaliNumerals(number_format($first->view_count)) }}</span>
+                      <span class="card-meta-item"><i class="fas fa-eye"></i> {{ BengaliHelper::toBengaliNumerals(number_format($first->display_view_count)) }}</span>
                     </div>
                   </div>
                 </article>
