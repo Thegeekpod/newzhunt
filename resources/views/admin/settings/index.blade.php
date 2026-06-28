@@ -141,6 +141,27 @@
       </div>
     </div>
 
+    <!-- Article View Count Settings Section -->
+    <div id="article-view-settings" style="margin-bottom: 24px; border-bottom: 1px solid var(--border-color); padding-bottom: 20px;">
+      <h3 class="card-title" style="font-size: 16px; color: #38bdf8; margin-bottom: 16px;">
+        <i class="fas fa-eye"></i> Article View Count Settings
+      </h3>
+      
+      <div class="form-row form-row-2">
+        <div class="form-group">
+          <label class="form-check" style="margin-top: 15px;">
+            <input type="checkbox" name="hide_view_count" id="hide_view_count" value="1" {{ ($settings['hide_view_count'] ?? '0') === '1' ? 'checked' : '' }}>
+            <span>Hide View Count on Frontend (ফ্রন্টএন্ডে ভিউ কাউন্ট লুকান)</span>
+          </label>
+        </div>
+        
+        <div class="form-group">
+          <label for="view_count_offset" class="form-label">View Count Increase Offset (ভিউ কাউন্ট বৃদ্ধির মান)</label>
+          <input type="number" name="view_count_offset" id="view_count_offset" class="form-control" value="{{ old('view_count_offset', $settings['view_count_offset'] ?? '200') }}" min="0" placeholder="e.g. 200">
+        </div>
+      </div>
+    </div>
+
     <!-- Submit Form -->
     <div style="margin-top: 24px; display: flex; gap: 12px; justify-content: flex-end; border-top: 1px solid var(--border-color); padding-top: 20px;">
       <button type="submit" class="btn-admin btn-admin-primary">Save All Settings</button>

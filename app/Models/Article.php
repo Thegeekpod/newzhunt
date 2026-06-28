@@ -74,6 +74,7 @@ class Article extends Model
 
     public function getDisplayViewCountAttribute()
     {
-        return $this->view_count + 200;
+        $offset = intval(\App\Models\Setting::where('key', 'view_count_offset')->value('value') ?? 200);
+        return $this->view_count + $offset;
     }
 }

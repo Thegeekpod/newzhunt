@@ -9,9 +9,14 @@
 <div class="admin-card">
   <div class="card-header-flex">
     <h2 class="card-title">All Articles</h2>
-    <a href="{{ route('admin.articles.create') }}" class="btn-admin btn-admin-primary">
-      <i class="fas fa-plus"></i> Write New Article
-    </a>
+    <div style="display: flex; gap: 10px;">
+      <a href="{{ route('admin.settings') }}#article-view-settings" class="btn-admin btn-admin-secondary">
+        <i class="fas fa-cog"></i> View Count Settings
+      </a>
+      <a href="{{ route('admin.articles.create') }}" class="btn-admin btn-admin-primary">
+        <i class="fas fa-plus"></i> Write New Article
+      </a>
+    </div>
   </div>
 
   <div class="table-responsive">

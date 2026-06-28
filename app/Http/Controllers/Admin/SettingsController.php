@@ -101,6 +101,9 @@ class SettingsController extends Controller
         if (!$request->has('weather_auto_fetch')) {
             $data['weather_auto_fetch'] = '0';
         }
+        if (!$request->has('hide_view_count')) {
+            $data['hide_view_count'] = '0';
+        }
 
         foreach ($data as $key => $value) {
             Setting::updateOrCreate(

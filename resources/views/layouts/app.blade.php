@@ -36,6 +36,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   @yield('styles')
+  @if(($g_settings['hide_view_count'] ?? '0') === '1')
+  <style>
+    .card-meta-item:has(.fa-eye),
+    .popular-meta {
+      display: none !important;
+    }
+  </style>
+  @endif
 </head>
 
 <body>
@@ -95,7 +103,7 @@
         <ul class="nav-menu" id="nav-menu">
           <li class="{{ request()->routeIs('home') ? 'active' : '' }}"><a href="{{ route('home') }}">হোম</a></li>
           @foreach($g_categories as $cat)
-            <li class="{{ (isset($category) && $category->slug === $cat->slug) ? 'active' : '' }}">
+            <li class="{{ (isset($category->slug) && $category->slug === $cat->slug) ? 'active' : '' }}">
                 <a href="{{ route('category.show', $cat->slug) }}">{{ $cat->name_bn }}</a>
             </li>
           @endforeach
