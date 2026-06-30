@@ -55,73 +55,101 @@
           
           {{-- Page 1: Hero Grid for top 3 articles --}}
           @if($articles->currentPage() == 1)
-            <div class="hero-grid">
-              <!-- Hero Main -->
-              @if($articles->count() >= 1)
-                @php $first = $articles[0]; @endphp
-                <article class="news-card hero-main">
-                  <div class="card-img-wrap">
-                    <a href="{{ route('article.show', $first->slug) }}">
-                      <img src="{{ $first->thumbnail_url ?? 'https://picsum.photos/seed/cat1/800/480' }}" alt="{{ $first->title }}" loading="eager">
-                    </a>
-                    <span class="card-category">{{ $category->name_bn }}</span>
-                  </div>
-                  <div class="card-body">
-                    <a href="{{ route('article.show', $first->slug) }}">
-                      <h2 class="card-title">{{ $first->title }}</h2>
-                    </a>
-                    <p class="card-excerpt">{{ $first->excerpt }}</p>
-                    <div class="card-meta">
-                      <span class="card-meta-item"><i class="fas fa-user"></i> {{ $first->author->name ?? 'সংবাদদাতা' }}</span>
-                      <span class="card-meta-item"><i class="fas fa-clock"></i> {{ BengaliHelper::toBengaliTime($first->published_at) }}</span>
-                      <span class="card-meta-item"><i class="fas fa-eye"></i> {{ BengaliHelper::toBengaliNumerals(number_format($first->display_view_count)) }}</span>
+            @if($articles->count() >= 3)
+              <div class="hero-grid">
+                <!-- Hero Main -->
+                @if($articles->count() >= 1)
+                  @php $first = $articles[0]; @endphp
+                  <article class="news-card hero-main">
+                    <div class="card-img-wrap">
+                      <a href="{{ route('article.show', $first->slug) }}">
+                        <img src="{{ $first->thumbnail_url ?? 'https://picsum.photos/seed/cat1/800/480' }}" alt="{{ $first->title }}" loading="eager">
+                      </a>
+                      <span class="card-category">{{ $category->name_bn }}</span>
                     </div>
-                  </div>
-                </article>
-              @endif
+                    <div class="card-body">
+                      <a href="{{ route('article.show', $first->slug) }}">
+                        <h2 class="card-title">{{ $first->title }}</h2>
+                      </a>
+                      <p class="card-excerpt">{{ $first->excerpt }}</p>
+                      <div class="card-meta">
+                        <span class="card-meta-item"><i class="fas fa-user"></i> {{ $first->author->name ?? 'সংবাদদাতা' }}</span>
+                        <span class="card-meta-item"><i class="fas fa-clock"></i> {{ BengaliHelper::toBengaliTime($first->published_at) }}</span>
+                        <span class="card-meta-item"><i class="fas fa-eye"></i> {{ BengaliHelper::toBengaliNumerals(number_format($first->display_view_count)) }}</span>
+                      </div>
+                    </div>
+                  </article>
+                @endif
 
-              <!-- Hero Side 1 -->
-              @if($articles->count() >= 2)
-                @php $second = $articles[1]; @endphp
-                <article class="news-card hero-side1">
-                  <div class="card-img-wrap">
-                    <a href="{{ route('article.show', $second->slug) }}">
-                      <img src="{{ $second->thumbnail_url ?? 'https://picsum.photos/seed/cat2/600/360' }}" alt="{{ $second->title }}" loading="lazy">
-                    </a>
-                    <span class="card-category">{{ $category->name_bn }}</span>
-                  </div>
-                  <div class="card-body">
-                    <a href="{{ route('article.show', $second->slug) }}">
-                      <h3 class="card-title">{{ $second->title }}</h3>
-                    </a>
-                    <div class="card-meta">
-                      <span class="card-meta-item"><i class="fas fa-clock"></i> {{ BengaliHelper::toBengaliTime($second->published_at) }}</span>
+                <!-- Hero Side 1 -->
+                @if($articles->count() >= 2)
+                  @php $second = $articles[1]; @endphp
+                  <article class="news-card hero-side1">
+                    <div class="card-img-wrap">
+                      <a href="{{ route('article.show', $second->slug) }}">
+                        <img src="{{ $second->thumbnail_url ?? 'https://picsum.photos/seed/cat2/600/360' }}" alt="{{ $second->title }}" loading="lazy">
+                      </a>
+                      <span class="card-category">{{ $category->name_bn }}</span>
                     </div>
-                  </div>
-                </article>
-              @endif
+                    <div class="card-body">
+                      <a href="{{ route('article.show', $second->slug) }}">
+                        <h3 class="card-title">{{ $second->title }}</h3>
+                      </a>
+                      <div class="card-meta">
+                        <span class="card-meta-item"><i class="fas fa-clock"></i> {{ BengaliHelper::toBengaliTime($second->published_at) }}</span>
+                      </div>
+                    </div>
+                  </article>
+                @endif
 
-              <!-- Hero Side 2 -->
-              @if($articles->count() >= 3)
-                @php $third = $articles[2]; @endphp
-                <article class="news-card hero-side2">
-                  <div class="card-img-wrap">
-                    <a href="{{ route('article.show', $third->slug) }}">
-                      <img src="{{ $third->thumbnail_url ?? 'https://picsum.photos/seed/cat3/600/360' }}" alt="{{ $third->title }}" loading="lazy">
-                    </a>
-                    <span class="card-category">{{ $category->name_bn }}</span>
-                  </div>
-                  <div class="card-body">
-                    <a href="{{ route('article.show', $third->slug) }}">
-                      <h3 class="card-title">{{ $third->title }}</h3>
-                    </a>
-                    <div class="card-meta">
-                      <span class="card-meta-item"><i class="fas fa-clock"></i> {{ BengaliHelper::toBengaliTime($third->published_at) }}</span>
+                <!-- Hero Side 2 -->
+                @if($articles->count() >= 3)
+                  @php $third = $articles[2]; @endphp
+                  <article class="news-card hero-side2">
+                    <div class="card-img-wrap">
+                      <a href="{{ route('article.show', $third->slug) }}">
+                        <img src="{{ $third->thumbnail_url ?? 'https://picsum.photos/seed/cat3/600/360' }}" alt="{{ $third->title }}" loading="lazy">
+                      </a>
+                      <span class="card-category">{{ $category->name_bn }}</span>
                     </div>
-                  </div>
-                </article>
-              @endif
-            </div>
+                    <div class="card-body">
+                      <a href="{{ route('article.show', $third->slug) }}">
+                        <h3 class="card-title">{{ $third->title }}</h3>
+                      </a>
+                      <div class="card-meta">
+                        <span class="card-meta-item"><i class="fas fa-clock"></i> {{ BengaliHelper::toBengaliTime($third->published_at) }}</span>
+                      </div>
+                    </div>
+                  </article>
+                @endif
+              </div>
+            @else
+              <div class="category-section" style="margin-bottom: 28px;">
+                <div class="cards-grid-3">
+                  @foreach($articles as $art)
+                    <article class="news-card">
+                      <div class="card-img-wrap">
+                        <a href="{{ route('article.show', $art->slug) }}">
+                          <img src="{{ $art->thumbnail_url ?? 'https://picsum.photos/seed/catart'.$art->id.'/600/380' }}" alt="{{ $art->title }}" loading="lazy">
+                        </a>
+                        <span class="card-category">{{ $category->name_bn }}</span>
+                      </div>
+                      <div class="card-body">
+                        <a href="{{ route('article.show', $art->slug) }}">
+                          <h3 class="card-title">{{ $art->title }}</h3>
+                        </a>
+                        <p class="card-excerpt">{{ $art->excerpt }}</p>
+                        <div class="card-meta">
+                          <span class="card-meta-item"><i class="fas fa-user"></i> {{ $art->author->name ?? 'সংবাদদাতা' }}</span>
+                          <span class="card-meta-item"><i class="fas fa-clock"></i> {{ BengaliHelper::toBengaliTime($art->published_at) }}</span>
+                          <span class="card-meta-item"><i class="fas fa-eye"></i> {{ BengaliHelper::toBengaliNumerals(number_format($art->display_view_count)) }}</span>
+                        </div>
+                      </div>
+                    </article>
+                  @endforeach
+                </div>
+              </div>
+            @endif
 
             <!-- AD BANNER AFTER TOP NEWS -->
             @if(isset($g_ads['category_top']) && $g_ads['category_top']->isNotEmpty())

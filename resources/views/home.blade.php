@@ -142,13 +142,13 @@
         </div>
 
         <!-- POLITICS -->
+        @if($politicsArticles->isNotEmpty())
         <div class="category-section">
           <div class="section-header">
             <h2 class="section-title">রাজনীতি</h2>
             <a href="{{ route('category.show', 'politics') }}" class="see-all">সব দেখুন <i class="fas fa-arrow-right" style="font-size: 11px;"></i></a>
           </div>
           
-          @if($politicsArticles->count() >= 3)
           <div class="cards-grid-3">
             @foreach($politicsArticles->take(3) as $art)
             <article class="news-card">
@@ -169,7 +169,6 @@
             </article>
             @endforeach
           </div>
-          @endif
 
           <!-- List below grid -->
           @if($politicsArticles->count() > 3)
@@ -195,6 +194,7 @@
           </div>
           @endif
         </div>
+        @endif
 
         <!-- SPORTS WITH TABS -->
         <div class="category-section sports-section">
@@ -232,6 +232,7 @@
         </div>
 
         <!-- INTERNATIONAL -->
+        @if($internationalArticles->isNotEmpty())
         <div class="category-section">
           <div class="section-header">
             <h2 class="section-title">আন্তর্জাতিক</h2>
@@ -258,6 +259,7 @@
             @endforeach
           </div>
         </div>
+        @endif
 
         <!-- VIDEO SECTION -->
         <div class="video-section">
@@ -298,6 +300,7 @@
         @endif
 
         <!-- ENTERTAINMENT -->
+        @if($entertainmentArticles->isNotEmpty())
         <div class="category-section">
           <div class="section-header">
             <h2 class="section-title">বিনোদন</h2>
@@ -324,6 +327,7 @@
             @endforeach
           </div>
         </div>
+        @endif
 
         <!-- PAGINATION placeholder -->
         <div class="pagination" role="navigation" aria-label="পৃষ্ঠা নেভিগেশন">
@@ -347,11 +351,37 @@
 @endsection
 
 @section('scripts')
+@php
+    $allSports = \App\Models\Article::published()->whereHas('category', fn($q) => $q->where('slug', 'sports'))->get();
+    
+    $tabCricket = \App\Models\Article::published()->whereHas('tags', fn($q) => $q->where('slug', 'cricket'))->take(3)->get();
+    if ($tabCricket->isEmpty()) {
+        $tabCricket = $allSports->take(3);
+    }
+
+    $tabFootball = \App\Models\Article::published()->whereHas('tags', fn($q) => $q->where('slug', 'football'))->take(3)->get();
+    if ($tabFootball->isEmpty()) {
+        $tabFootball = $allSports->skip(3)->take(3);
+        if ($tabFootball->isEmpty()) {
+            $tabFootball = $allSports->take(3);
+        }
+    }
+
+    $tabKabaddi = \App\Models\Article::published()->whereHas('tags', fn($q) => $q->where('slug', 'kabaddi'))->take(3)->get();
+    if ($tabKabaddi->isEmpty()) {
+        $tabKabaddi = $allSports->take(3);
+    }
+
+    $tabOthers = \App\Models\Article::published()->whereHas('category', fn($q) => $q->where('slug', 'sports'))->whereDoesntHave('tags', fn($q) => $q->whereIn('slug', ['cricket', 'football', 'kabaddi']))->take(3)->get();
+    if ($tabOthers->isEmpty()) {
+        $tabOthers = $allSports->take(3);
+    }
+@endphp
 <script>
     // Bind database driven sports articles to sportsData javascript object
     window.sportsData = {
         cricket: [
-            @foreach(\App\Models\Article::published()->whereHas('category', fn($q) => $q->where('slug', 'sports'))->take(3)->get() as $art)
+            @foreach($tabCricket as $art)
             {
                 img: "{{ $art->thumbnail_url ?? 'https://picsum.photos/seed/crick'.$art->id.'/300/200' }}",
                 title: "{{ $art->title }}",
@@ -361,7 +391,7 @@
             @endforeach
         ],
         football: [
-            @foreach(\App\Models\Article::published()->whereHas('category', fn($q) => $q->where('slug', 'international'))->take(3)->get() as $art)
+            @foreach($tabFootball as $art)
             {
                 img: "{{ $art->thumbnail_url ?? 'https://picsum.photos/seed/foot'.$art->id.'/300/200' }}",
                 title: "{{ $art->title }}",
@@ -371,7 +401,7 @@
             @endforeach
         ],
         kabaddi: [
-            @foreach(\App\Models\Article::published()->whereHas('category', fn($q) => $q->where('slug', 'health'))->take(2)->get() as $art)
+            @foreach($tabKabaddi as $art)
             {
                 img: "{{ $art->thumbnail_url ?? 'https://picsum.photos/seed/kabad'.$art->id.'/300/200' }}",
                 title: "{{ $art->title }}",
@@ -381,7 +411,7 @@
             @endforeach
         ],
         others: [
-            @foreach(\App\Models\Article::published()->whereHas('category', fn($q) => $q->where('slug', 'tech'))->take(2)->get() as $art)
+            @foreach($tabOthers as $art)
             {
                 img: "{{ $art->thumbnail_url ?? 'https://picsum.photos/seed/oth'.$art->id.'/300/200' }}",
                 title: "{{ $art->title }}",

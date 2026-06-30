@@ -30,9 +30,29 @@ class AppServiceProvider extends ServiceProvider
             // Always serve instantly from database — weather is refreshed via background AJAX
             $settings = \App\Models\Setting::all()->keyBy('key')->map(fn($item) => $item->value);
 
+            $tickers = \App\Models\Ticker::where('is_active', true)->get()->map(function ($t) {
+                return (object) [
+                    'text_bn' => $t->text_bn,
+                    'link_url' => $t->link_url ?? '#'
+                ];
+            });
+
+            $breakingArticles = \App\Models\Article::published()
+                ->where('is_breaking', true)
+                ->latest('published_at')
+                ->get()
+                ->map(function ($a) {
+                    return (object) [
+                        'text_bn' => $a->title,
+                        'link_url' => route('article.show', $a->slug)
+                    ];
+                });
+
+            $combinedTickers = $tickers->concat($breakingArticles);
+
             $view->with([
                 'g_categories' => \App\Models\Category::orderBy('display_order', 'asc')->get(),
-                'g_tickers' => \App\Models\Ticker::where('is_active', true)->get(),
+                'g_tickers' => $combinedTickers,
                 'g_popular' => $popular,
                 'g_latest' => $latest,
                 'g_poll' => \App\Models\Poll::where('is_active', true)->with('options')->first(),
