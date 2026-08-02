@@ -30,7 +30,7 @@ class AppServiceProvider extends ServiceProvider
             // Always serve instantly from database — weather is refreshed via background AJAX
             $settings = \App\Models\Setting::all()->keyBy('key')->map(fn($item) => $item->value);
 
-            $tickers = \App\Models\Ticker::where('is_active', true)->get()->map(function ($t) {
+            $tickers = \App\Models\Ticker::where('is_active', true)->latest()->get()->map(function ($t) {
                 return (object) [
                     'text_bn' => $t->text_bn,
                     'link_url' => $t->link_url ?? '#'
@@ -40,6 +40,7 @@ class AppServiceProvider extends ServiceProvider
             $breakingArticles = \App\Models\Article::published()
                 ->where('is_breaking', true)
                 ->latest('published_at')
+                ->take(10)
                 ->get()
                 ->map(function ($a) {
                     return (object) [
@@ -49,6 +50,27 @@ class AppServiceProvider extends ServiceProvider
                 });
 
             $combinedTickers = $tickers->concat($breakingArticles);
+
+            if ($combinedTickers->count() < 10) {
+                $needed = 10 - $combinedTickers->count();
+                $existingUrls = $combinedTickers->pluck('link_url')->filter()->toArray();
+
+                $latestFallback = \App\Models\Article::published()
+                    ->latest('published_at')
+                    ->get()
+                    ->map(function ($a) {
+                        return (object) [
+                            'text_bn' => $a->title,
+                            'link_url' => route('article.show', $a->slug)
+                        ];
+                    })
+                    ->reject(fn($item) => in_array($item->link_url, $existingUrls))
+                    ->take($needed);
+
+                $combinedTickers = $combinedTickers->concat($latestFallback);
+            }
+
+            $combinedTickers = $combinedTickers->take(10);
 
             $view->with([
                 'g_categories' => \App\Models\Category::orderBy('display_order', 'asc')->get(),
